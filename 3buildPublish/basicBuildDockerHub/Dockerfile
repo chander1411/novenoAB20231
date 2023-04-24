@@ -1,4 +1,12 @@
 # BUILDX
+# docker buildx create --name mybuilder --driver docker-container --bootstrap
+# mybuilder
+
+# docker image tag prueba joancema/prueba:1.0.0 
+# docker build --tag joancema/prueba:1.0.0 .
+# docker push joancema/prueba:1.0.0
+# docker container run joancema/prueba:1.0.0 
+
 # docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 \
 #    -t klerith/cron-ticker:latest --push .
 
