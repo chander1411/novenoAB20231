@@ -1,3 +1,4 @@
+# https://docs.docker.com/build/building/multi-platform/#getting-started
 # BUILDX
 # docker buildx create --name mybuilder --driver docker-container --bootstrap
 # mybuilder
