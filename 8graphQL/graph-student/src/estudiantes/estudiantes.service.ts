@@ -38,6 +38,8 @@ export class EstudiantesService {
 
     const estudiante= await  this.findOne(id);
 
+    // await this.estudiantesRepository.update({id:id},{estado:true  });
+
     await this.estudiantesRepository.remove(estudiante);
 
     return {...estudiante, id};
