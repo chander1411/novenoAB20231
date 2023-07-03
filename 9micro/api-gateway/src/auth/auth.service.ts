@@ -1,8 +1,8 @@
 import { ClientProxySuperFlights } from './../common/proxy/client-proxy';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserDTO } from 'src/user/dto/user.dto';
-import { UserMSG } from 'src/common/constants';
+// import { UserDTO } from 'src/user/dto/user.dto';
+import { PersonaMSG } from 'src/common/constants';
 
 @Injectable()
 export class AuthService {
@@ -11,19 +11,19 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  private _clientProxyUser = this.clientProxy.clientProxyUsers();
-  async validateUser(username: string, password: string): Promise<any> {
-    const user = await this._clientProxyUser
-      .send(UserMSG.VALID_USER, {
-        username,
-        password,
-      })
-      .toPromise();
+  private _clientProxyUser = this.clientProxy.clientProxyPersonas();
+  // async validateUser(username: string, password: string): Promise<any> {
+  //   const user = await this._clientProxyUser
+  //     .send(PersonaMSG.VALID_PERSONA, {
+  //       username,
+  //       password,
+  //     })
+  //     .toPromise();
 
-    if (user) return user;
+  //   if (user) return user;
 
-    return null;
-  }
+  //   return null;
+  // }
 
   async signIn(user: any) {
     const payload = {
@@ -34,9 +34,9 @@ export class AuthService {
     return { access_token: this.jwtService.sign(payload) };
   }
 
-  async signUp(userDTO: UserDTO) {
-    return await this._clientProxyUser
-      .send(UserMSG.CREATE, userDTO)
-      .toPromise();
-  }
+  // async signUp(userDTO: UserDTO) {
+  //   return await this._clientProxyUser
+  //     .send(UserMSG.CREATE, userDTO)
+  //     .toPromise();
+  // }
 }

@@ -1,17 +1,16 @@
 export enum RabbitMQ {
-  UserQueue = 'users',
-  PassengerQueue = 'passengers',
+  PersonaQueue = 'personas',
+  SoftwareQueue = 'softwares',
   FlightQueue = 'flights',
-  StudentQueue = 'students'
+  StudentQueue = 'students',
 }
 
-export enum UserMSG {
-  CREATE = 'CREATE_USER',
-  FIND_ALL = 'FIND_USERS',
-  FIND_ONE = 'FIND_USER',
-  UPDATE = 'UPDATE_USER',
-  DELETE = 'DELETE_USER',
-  VALID_USER = 'VALID_USER',
+export enum PersonaMSG {
+  CREATE = 'CREATE_PERSONA',
+  FIND_ALL = 'FIND_PERSONAS',
+  FIND_ONE = 'FIND_PERSONA',
+  UPDATE = 'UPDATE_PERSONA',
+  DELETE = 'DELETE_PERSONA',
 }
 
 export enum StudentMSG {
@@ -23,13 +22,12 @@ export enum StudentMSG {
   VALID_USER = 'VALID_STUDENT',
 }
 
-
-export enum PassengerMSG {
-  CREATE = 'CREATE_PASSENGER',
-  FIND_ALL = 'FIND_PASSENGERS',
-  FIND_ONE = 'FIND_PASSENGER',
-  UPDATE = 'UPDATE_PASSENGER',
-  DELETE = 'DELETE_PASSENGER',
+export enum SoftwareMSG {
+  CREATE = 'CREATE_SOFTWARE',
+  FIND_ALL = 'FIND_SOFTWARES',
+  FIND_ONE = 'FIND_SOFTWARE',
+  UPDATE = 'UPDATE_SOFTWARE',
+  DELETE = 'DELETE_SOFTWARE',
 }
 
 export enum FlightMSG {

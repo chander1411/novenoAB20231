@@ -12,15 +12,28 @@ type Estudiante {
   estado: Boolean!
 }
 
+type Software {
+  id: ID!
+  nombre: String!
+  requerimientos: String!
+  idioma: String!
+  eliminado: Boolean!
+}
+
 type Query {
   estudiantes: [Estudiante!]!
   estudiante(id: ID!): Estudiante!
+  softwares: [Software!]!
+  software(id: ID!): Software!
 }
 
 type Mutation {
   createEstudiante(createEstudianteInput: CreateEstudianteInput!): Estudiante!
   updateEstudiante(updateEstudianteInput: UpdateEstudianteInput!): Estudiante!
   removeEstudiante(id: ID!): Estudiante!
+  createSoftware(createSoftwareInput: CreateSoftwareInput!): Software!
+  updateSoftware(updateSoftwareInput: UpdateSoftwareInput!): Software!
+  removeSoftware(id: ID!): Software!
 }
 
 input CreateEstudianteInput {
@@ -39,5 +52,20 @@ input UpdateEstudianteInput {
   telefono: [String!]
   tipo: Int
   estado: Boolean
+  id: ID!
+}
+
+input CreateSoftwareInput {
+  nombre: String!
+  requerimientos: String!
+  idioma: String!
+  eliminado: Boolean! = false
+}
+
+input UpdateSoftwareInput {
+  nombre: String!
+  requerimientos: String!
+  idioma: String!
+  eliminado: Boolean = false
   id: ID!
 }

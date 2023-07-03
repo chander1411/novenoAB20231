@@ -6,6 +6,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { EstudiantesModule } from './estudiantes/estudiantes.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { SoftwareModule } from './software/software.module';
 
 @Module({
   imports: [
@@ -29,7 +30,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize:true,
       autoLoadEntities:true,
     }),
-    EstudiantesModule
+    EstudiantesModule,
+    SoftwareModule
   ],
   controllers: [],
   providers: [],

@@ -11,22 +11,22 @@ import { RabbitMQ } from '../constants';
 export class ClientProxySuperFlights {
   constructor(private readonly config: ConfigService) {}
 
-  clientProxyUsers(): ClientProxy {
+  clientProxyPersonas(): ClientProxy {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
         urls: this.config.get('AMQP_URL'),
-        queue: RabbitMQ.UserQueue,
+        queue: RabbitMQ.PersonaQueue,
       },
     });
   }
 
-  clientProxyPassengers(): ClientProxy {
+  clientProxySoftwares(): ClientProxy {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
         urls: this.config.get('AMQP_URL'),
-        queue: RabbitMQ.PassengerQueue,
+        queue: RabbitMQ.SoftwareQueue,
       },
     });
   }

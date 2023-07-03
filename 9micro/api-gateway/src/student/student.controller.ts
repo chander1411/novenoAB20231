@@ -39,7 +39,10 @@ export class StudentController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() studentDTO: StudentDTO): Observable<IStudent> {
+  update(
+    @Param('id') id: string,
+    @Body() studentDTO: StudentDTO,
+  ): Observable<IStudent> {
     return this._clientProxyStudent.send(StudentMSG.UPDATE, { id, studentDTO });
   }
 

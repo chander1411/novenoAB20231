@@ -1,7 +1,6 @@
 export interface IStudent extends Document {
-  identificacion: string;
   nombre: string;
-  direccion: string;
-  telefono: string;
-  tipo: string;
+  identificacion: string;
+  representante: string;
+  curso: string;
 }

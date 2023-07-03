@@ -2,11 +2,10 @@ import * as mongoose from 'mongoose';
 
 export const StudentSchema = new mongoose.Schema(
   {
-    identificacion: { type: String, required: true },
     nombre: { type: String, required: true },
-    direccion: { type: String, required: true },
-    telefono: { type: String, required: true },
-    tipo: { type: Number, required: true },
+    identificacion: { type: String, required: true },
+    representante: { type: String, required: true },
+    curso: { type: String, required: true },
   },
   { timestamps: true },
 );

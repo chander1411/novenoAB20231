@@ -1,4 +1,4 @@
-import { FlightMSG, PassengerMSG } from './../common/constants';
+import { FlightMSG, SoftwareMSG } from './../common/constants';
 import { FlightDTO } from './dto/flight.dto';
 import { Observable } from 'rxjs';
 import { ClientProxySuperFlights } from './../common/proxy/client-proxy';
@@ -25,7 +25,7 @@ export class FlightController {
   constructor(private readonly clientProxy: ClientProxySuperFlights) {}
 
   private _clientProxyFlight = this.clientProxy.clientProxyFlights();
-  private _clientProxyPassenger = this.clientProxy.clientProxyPassengers();
+  private _clientProxyPassenger = this.clientProxy.clientProxySoftwares();
 
   @Post()
   create(@Body() flightDTO: FlightDTO): Observable<IFlight> {
@@ -61,7 +61,7 @@ export class FlightController {
     @Param('passengerId') passengerId: string,
   ) {
     const passenger = await this._clientProxyPassenger
-      .send(PassengerMSG.FIND_ONE, passengerId)
+      .send(SoftwareMSG.FIND_ONE, passengerId)
       .toPromise();
 
     if (!passenger)

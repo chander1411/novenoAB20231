@@ -8,9 +8,10 @@ import { IStudent } from 'src/common/interfaces/student.interface';
 
 @Injectable()
 export class StudentService {
-  constructor(@InjectModel(STUDENT.name) private readonly model: Model<IStudent>) {}
+  constructor(
+    @InjectModel(STUDENT.name) private readonly model: Model<IStudent>,
+  ) {}
 
-  
   async create(studentDTO: StudentDTO): Promise<IStudent> {
     const newStudent = new this.model(studentDTO);
     return await newStudent.save();
@@ -25,7 +26,7 @@ export class StudentService {
   }
 
   async update(id: string, studentDTO: StudentDTO): Promise<IStudent> {
-    return await this.model.findByIdAndUpdate(id, studentDTO , { new: true });
+    return await this.model.findByIdAndUpdate(id, studentDTO, { new: true });
   }
 
   async delete(id: string) {
